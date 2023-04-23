@@ -1,0 +1,36 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+.desktop-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mobile-toolbar {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .desktop-toolbar {
+    display: none;
+  }
+
+  .mobile-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0.5rem;
+  }
+}
+
+.custom-background {
+  background-color: #fff;
+  color: #000;
+}
+
+.mat-drawer-container {
+  height: 100%;
+}

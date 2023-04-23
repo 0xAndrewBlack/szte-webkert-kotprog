@@ -1,0 +1,47 @@
+<div class="container">
+    <mat-toolbar color="primary" class="mobile-toolbar">
+        <span>Okmányiroda</span>
+        <button mat-icon-button (click)="toggleSidenav()">
+            <mat-icon>menu</mat-icon>
+        </button>
+    </mat-toolbar>
+
+    <mat-toolbar color="primary" class="desktop-toolbar">
+        <span>Okmányiroda</span>
+
+        <span class="spacer"></span>
+
+        <a mat-button routerLink="/" routerLinkActive="active">
+            <mat-icon fontSet="material-icons-outlined">home</mat-icon>
+            Főoldal
+        </a>
+
+        <a mat-button routerLink="/about" routerLinkActive="active">
+            <mat-icon fontSet="material-icons-outlined">info</mat-icon>
+            Rólunk
+        </a>
+
+        <a mat-button routerLink="/appointment" routerLinkActive="active">
+            <mat-icon fontSet="material-icons-outlined">event</mat-icon>
+            Időpontfoglalás
+        </a>
+
+        <a mat-button routerLink="/auth" routerLinkActive="active">
+            <mat-icon fontSet="material-icons-outlined">login</mat-icon>
+            Belépés
+        </a>
+    </mat-toolbar>
+
+    <mat-sidenav-container class="sidenav-container">
+        <mat-sidenav #sidenav class="sidenav">
+            <a mat-button routerLink="/" routerLinkActive="active" (click)="toggleSidenav()">Főoldal</a>
+            <a mat-button routerLink="/about" routerLinkActive="active" (click)="toggleSidenav()">Rólunk</a>
+            <a mat-button routerLink="/appointment" routerLinkActive="active"
+                (click)="toggleSidenav()">Időpontfoglalás</a>
+            <a mat-button routerLink="/auth" routerLinkActive="active" (click)="toggleSidenav()">Belépés</a>
+        </mat-sidenav>
+        <mat-sidenav-content class="custom-background">
+            <router-outlet></router-outlet>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>
