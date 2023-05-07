@@ -21,14 +21,24 @@
             Rólunk
         </a>
 
-        <a mat-button routerLink="/appointment" routerLinkActive="active">
+        <a *ngIf="user" mat-button routerLink="/appointments" routerLinkActive="active">
             <mat-icon fontSet="material-icons-outlined">event</mat-icon>
+            Időpontjaim
+        </a>
+
+        <a *ngIf="user" mat-button routerLink="/appointment" routerLinkActive="active">
+            <mat-icon fontSet="material-icons-outlined">add</mat-icon>
             Időpontfoglalás
         </a>
 
-        <a mat-button routerLink="/auth" routerLinkActive="active">
+        <a *ngIf="!user" mat-button routerLink="/auth" routerLinkActive="active">
             <mat-icon fontSet="material-icons-outlined">login</mat-icon>
             Belépés
+        </a>
+
+        <a *ngIf="user" mat-button routerLinkActive="active" (click)="logout()">
+            <mat-icon fontSet="material-icons-outlined">logout</mat-icon>
+            Kilépés
         </a>
     </mat-toolbar>
 
@@ -36,9 +46,13 @@
         <mat-sidenav #sidenav class="sidenav">
             <a mat-button routerLink="/" routerLinkActive="active" (click)="toggleSidenav()">Főoldal</a>
             <a mat-button routerLink="/about" routerLinkActive="active" (click)="toggleSidenav()">Rólunk</a>
-            <a mat-button routerLink="/appointment" routerLinkActive="active"
+            <a *ngIf="user" mat-button routerLink="/appointments" routerLinkActive="active"
+                (click)="toggleSidenav()">Időpontjaim</a>
+            <a *ngIf="user" mat-button routerLink="/appointment" routerLinkActive="active"
                 (click)="toggleSidenav()">Időpontfoglalás</a>
-            <a mat-button routerLink="/auth" routerLinkActive="active" (click)="toggleSidenav()">Belépés</a>
+            <a *ngIf="!user" mat-button routerLink="/auth" routerLinkActive="active"
+                (click)="toggleSidenav()">Belépés</a>
+            <a *ngIf="user" mat-button routerLinkActive="active" (click)="logout()">Kilépés</a>
         </mat-sidenav>
         <mat-sidenav-content class="custom-background">
             <router-outlet></router-outlet>
