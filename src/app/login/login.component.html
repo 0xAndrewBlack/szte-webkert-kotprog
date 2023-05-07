@@ -1,0 +1,25 @@
+<div>
+    <h1 class="heading mat-h1">Belépés</h1>
+
+    <div class="content">
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
+            <div class="form-container">
+
+                <mat-form-field appearance="fill">
+                    <mat-label>E-Mail</mat-label>
+                    <input matInput type="email" formControlName="email" required>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Jelszó</mat-label>
+                    <input matInput type="password" formControlName="password" required>
+                </mat-form-field>
+
+                <button mat-raised-button color="primary">
+                    <mat-icon fontSet="material-icons-outlined">login</mat-icon>
+                    Belépés
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

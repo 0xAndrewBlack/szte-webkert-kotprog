@@ -1,0 +1,41 @@
+<div>
+    <h1 class="heading mat-h1">Regisztráció</h1>
+
+    <div class="content">
+        <form [formGroup]="registrationForm" (ngSubmit)="register()">
+            <div class="form-container">
+
+                <mat-form-field appearance="fill">
+                    <mat-label>E-Mail</mat-label>
+                    <input matInput type="email" formControlName="email" required>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Jelszó</mat-label>
+                    <input matInput type="password" formControlName="password" required>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Jelszó Megerősítése</mat-label>
+                    <input matInput type="password" formControlName="confirmPassword" required>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Vezetéknév</mat-label>
+                    <input matInput type="text" formControlName="firstName" required>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Keresztnév</mat-label>
+                    <input matInput type="text" formControlName="lastName" required>
+                </mat-form-field>
+
+                <button mat-raised-button color="primary">
+                    <mat-icon fontSet="material-icons-outlined">add</mat-icon>
+                    Register
+                </button>
+            </div>
+        </form>
+
+    </div>
+</div>

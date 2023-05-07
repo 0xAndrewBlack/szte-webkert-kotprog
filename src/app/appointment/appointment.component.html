@@ -10,6 +10,36 @@
     </div>
 
     <div class="appointment-form">
-        TODO...
+        <form [formGroup]="appointmentForm" (ngSubmit)="submit()">
+            <div class="form-container">
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Név</mat-label>
+                    <input matInput type="text" formControlName="name" required>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Időpont</mat-label>
+                    <input matInput [matDatepicker]="picker" formControlName="date" required>
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Ügy</mat-label>
+                    <mat-select formControlName="case" required>
+                        <mat-option value="">--</mat-option>
+                        <mat-option *ngFor="let case of cases" [value]="case">
+                            {{case}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <button mat-raised-button color="primary">
+                    <mat-icon fontSet="material-icons-outlined">add</mat-icon>
+                    Foglalás
+                </button>
+            </div>
+        </form>
     </div>
 </div>
