@@ -7,6 +7,10 @@ import { AppointmentComponent } from './appointment/appointment.component';
 import { AuthenticationComponent } from './authentication/authentication.component';
 
 import { NotfoundComponent } from './notfound/notfound.component';
+import { RegistrationComponent } from './registration/registration.component';
+import { LoginComponent } from './login/login.component';
+import { AuthGuard } from './auth.guard';
+import { AppointmentsComponent } from './appointments/appointments.component';
 
 const routes: Routes = [
   {
@@ -20,10 +24,24 @@ const routes: Routes = [
   {
     path: 'appointment',
     component: AppointmentComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'appointments',
+    component: AppointmentsComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'auth',
     component: AuthenticationComponent,
+  },
+  {
+    path: 'auth/login',
+    component: LoginComponent,
+  },
+  {
+    path: 'auth/register',
+    component: RegistrationComponent,
   },
   {
     path: '**',
